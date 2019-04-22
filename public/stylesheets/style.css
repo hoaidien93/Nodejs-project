@@ -366,7 +366,7 @@ z-index: 999;}
 .promo3 { background:#fa8072;}
 .promo4 { background:#4abebd;}
 .section-title {
-  font-family: "Raleway",sans-serif;
+  font-family: "Roboto Condensed",sans-serif;
   font-size: 50px;
   font-weight: 100;
   margin-bottom: 50px;
@@ -491,13 +491,11 @@ z-index: 999;}
 .maincontent-area {padding-bottom: 50px; padding-top:20px;}
 
 .product-wid-title {
-  font-family: raleway;
+  font-family: "Roboto Condensed",sans-serif;
   font-size: 30px;
   font-weight: 100;
   margin-bottom: 40px;
 }
-
-
 .single-wid-product {
     margin-bottom: 31px;
     overflow: hidden;
@@ -938,7 +936,7 @@ td.actions div.coupon {
 .cross-sells {
     float: left;
     margin-right: 3%;
-    width: 57%;
+    width: 100%;
 }
 .cart_totals {
     float: right;
@@ -961,6 +959,7 @@ div.cart-collaterals ul.products li.product {
     margin-left: 30px;
     position: relative;
     width: 198px;
+    margin-bottom: 20px;
 }
 .cart_totals table {
     border-bottom: 1px solid #ddd;
@@ -1120,4 +1119,32 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
 
 .pagination > li > a, .pagination > li > span {
   color: #5a88ca;
+}
+div.search{
+    padding-top: 20px;
+    margin: auto;
+    font-size: 16px;
+    padding-bottom: 20px;
+    border: 1px solid blue;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+.search-input{
+    width: 25%;
+    display: inline-block;
+    margin-right: 5px;
+}
+.search-form{
+    margin-bottom: 2em;
+}
+.search-h2{
+    color: #5a88ca;
+    font-size: 25px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+.search-form form{
+    display: flex;
+    align-items: center;
 }

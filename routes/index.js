@@ -14,4 +14,10 @@ router.get('/cart', function(req, res, next) {
 router.get('/checkout', function(req, res, next) {
   res.render('checkout');
 });
+router.get('/product', function(req, res, next) {
+  res.render('product');
+});
+router.get('/search', function(req, res, next) {
+  res.render('search');
+});
 module.exports = router;
