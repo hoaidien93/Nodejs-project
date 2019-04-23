@@ -32,4 +32,10 @@ router.get('/sign-up',(req,res)=>{
 router.get('/forgotPass',(req,res)=>{
   res.render('forgotPass',{isLogin: false});
 });
+router.get('/update-info',(req,res)=>{
+  res.render('updateInfo',{isLogin: true});
+});
+router.get('/history',(req,res)=>{
+  res.render('history',{isLogin: true});
+});
 module.exports = router;

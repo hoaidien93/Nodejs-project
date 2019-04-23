@@ -1,62 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>UpdateInfomation</title>
-
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
-
-    <!-- Main css -->
-    <link rel="stylesheet" href="css/signup.css">
-</head>
-<body>
-
-    <div class="main">
-
-        <section class="signup">
-            <!-- <img src="images/signup-bg.jpg" alt=""> -->
-            <div class="container">
-                <div class="signup-content">
-                    <form method="POST" id="signup-form" class="signup-form" >
-                        <h2 class="form-title" style="color: green ; font-family: JosefinSans-Bold" >Thông tin tài khoản</h2>
-                        <div class="form-group">
-                            <label >Họ tên: </label>
-                            <input type="text" class="form-input" name="name" id="name" value="HuongNQ" />
-                        </div>
-                        <div class="form-group">
-                            <label >Email: </label>
-                            <input type="email" class="form-input" name="email" id="email" disabled value="
-                            quanghuongitus@gmail.com"  />
-                        </div>
-                        <div class="form-group">
-                            <label >Mật khẩu: </label>
-                            <input type="text" class="form-input" name="password" id="password" value="********" />
-                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
-                        </div>
-                        <div class="form-group">
-                             <label >Số điện thoại: </label>
-                            <input type="text" class="form-input" name="phone" id="phone" disabled value="0345531333" />
-                        </div>
-                        <div class="form-group">
-                            <label >Ngày sinh: </label>
-                            <input type="date" class="form-input" name="phone" id="date" value="1996-05-25"
-                            min="1910-01-01" max="2018-12-31" />
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Update"/>
-                        </div>
-                    </form>
+<section class="update-info">
+    <!-- <img src="images/signup-bg.jpg" alt=""> -->
+    <div class="container">
+        <div class="signup-content">
+            <form method="POST" id="signup-form" class="signup-form">
+                <h2 class="form-title" style="color: green ; font-family: JosefinSans-Bold">Thông tin tài khoản</h2>
+                <div class="form-group">
+                    <label>Tên: </label>
+                    <input type="text" class="form-input" name="name" id="name" value="HuongNQ" />
                 </div>
-            </div>
-        </section>
+                <div class="form-group">
+                    <label>Email: </label>
+                    <input type="email" class="form-input" name="email" id="email" disabled value="
+                            quanghuongitus@gmail.com" />
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu: </label>
+                    <input type="text" class="form-input" name="password" id="password" value="********" />
+                    <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại: </label>
+                    <input type="text" class="form-input" name="phone" id="phone" disabled value="0345531333" />
+                </div>
+                <div class="form-group">
+                    <label>Ngày sinh: </label>
+                    <input type="date" class="form-input" name="phone" id="date" value="1996-05-25" min="1910-01-01"
+                        max="2018-12-31" />
+                </div>
 
+                <div class="form-group">
+                    <input type="submit" name="submit" id="submit" class="form-submit" value="Cập nhật" />
+                </div>
+            </form>
+        </div>
     </div>
-
-    <!-- JS -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
-</html>
+</section>
+<!-- JS -->
+<script src="vendor/jquery/jquery.min.js"></script>
