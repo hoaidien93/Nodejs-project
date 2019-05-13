@@ -22,15 +22,15 @@ class Model{
         return result;
     }
 
-    async getNewProduct(){
+    async getNewProduct(limit){
         // Get 10 newest product
-        var result = await dbo.collection("Products").find({}).sort( { dateUpdate: -1 } ).limit(10).toArray();
+        var result = await dbo.collection("Products").find({}).sort( { dateUpdate: -1 } ).limit(limit).toArray();
         return result;
     }
 
-    async getBestSelling(){
+    async getBestSelling(limit){
         // Get 3 best selling
-        var result = await dbo.collection("Products").find({}).sort( { quantitySold: -1 } ).limit(3).toArray();
+        var result = await dbo.collection("Products").find({}).sort( { quantitySold: -1 } ).limit(limit).toArray();
         return result;
     }
 
