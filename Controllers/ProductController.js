@@ -8,7 +8,7 @@ class ProductController{
             if(result.length === 0){
                return res.render('Home/home',{isLogin: true, title: "Trang chủ"});
             }
-            return res.render('Products/product',{isLogin: true, title: "Chi tiết sản phẩm", "product":result});
+            return res.render('Products/product',{isLogin: true, title: "Chi tiết sản phẩm", product : result[0]});
         });
     }
 }
