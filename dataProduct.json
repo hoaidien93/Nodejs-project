@@ -1,0 +1,249 @@
+{
+    "productID": "P002",
+    "name": "Iphone XS Max",
+    "oldPrice": "50.000.000",
+    "newPrice": "40.000.000",
+    "img": "/img/IPXs_Max.jpg",
+    "description": "Iphone XS Max. Một sản phẩm mới nhất của Apple",
+    "starEvaluate": "5",
+    "producer": "Apple",
+    "categoryID": "",
+    "dateUpdate": "13/05/2019",
+    "country": "Mỹ",
+    "quantitySold": "12"
+}
+
+{
+    "productID": "P003",
+    "name": "Xiaomi Mi 9 (64GB/6GB)",
+    "oldPrice": "11.990.000",
+    "newPrice": "10.990.000",
+    "img": "/img/xiaomi_mi9.jpg",
+    "description": "Điện Thoại Xiaomi Mi 9 được trang bị màn hình khuyết đỉnh hình giọt nước, viền màn hình được làm mỏng đáng kể",
+    "starEvaluate": "5",
+    "producer": "Xiaomi",
+    "categoryID": "",
+    "dateUpdate": "13/05/2018",
+    "country": "Trung Quốc",
+    "quantitySold": "12"
+}
+
+{
+    "productID": "P004",
+    "name": "Xiaomi Redmi Note 7",
+    "oldPrice": "3.990.000",
+    "newPrice": "2.990.000",
+    "img": "/img/xiaomi_redmi_note7.jpg",
+    "description": "Điện Thoại Xiaomi Redmi Note 7 mang trong mình một thiết kế với sự kết hợp hài hòa giữa chất liệu kim loại nguyên khối và kính tạo nên một thiết kế tổng thể vô cùng cứng cáp nhưng không kém phần sang trọng, quyến rũ.",
+    "starEvaluate": "5",
+    "producer": "Xiaomi",
+    "categoryID": "",
+    "dateUpdate": "13/05/2018",
+    "country": "Trung Quốc",
+    "quantitySold": "12"
+}
+
+{
+    "productID": "P005",
+    "name": "iPhone XR",
+    "oldPrice": "17.490.000",
+    "newPrice": "16.490.000",
+    "img": "/img/iphone_xr.jpg",
+    "description": "Điện Thoại iPhone XR (64GB) VN/A là một trong 3 mẫu phiên bản iPhone 2018 vừa được ra mắt tại sự kiện ra tại Nhà hát Steve Jobs, trong khuôn viên trụ sở Apple Park ở Cupertino, California. iPhone 2018 là smartphone được chờ đợi nhất năm với những tính năng mà Apple quảng bá là “tối tân nhất từ trước tới nay”.",
+    "starEvaluate": "5",
+    "producer": "Apple",
+    "categoryID": "",
+    "dateUpdate": "13/05/2019",
+    "country": "Mỹ",
+    "quantitySold": "12"
+}
+
+
+{
+    "productID": "P006",
+    "name": "Nokia 3.1",
+    "oldPrice": "1.780.000",
+    "newPrice": "1.480.000",
+    "img": "/img/nokia_3.jpg",
+    "description": "Điện Thoại Nokia 3.1 có thiết kế nguyên khối quen thuộc cùng với hai đường cắt kim cương ở phần trên và dưới của khung viền mang lại cảm giác sang trọng cho thiết bị. Hình dáng Nokia 3.1 cũng thanh mảnh và gọn gàng hơn nhiều so với bộ ba smartphone vừa mới ra mắt.",
+    "starEvaluate": "5",
+    "producer": "Nokia",
+    "categoryID": "",
+    "dateUpdate": "13/05/2019",
+    "country": "Trung Quốc",
+    "quantitySold": "12"
+}
+
+{
+    "productID": "P007",
+    "name": "OPPO F7",
+    "oldPrice": "4.690.000",
+    "newPrice": "3.690.000",
+    "img": "/img/oppo_f7.jpg",
+    "description": "Điện Thoại Oppo F7 tiếp tục xu hướng màn hình tràn viền trên dòng điện thoại OPPO với các cạnh máy ở mặt trước được làm mỏng, gọn cho trải nghiệm sử dụng hoàn toàn mới và khác biệt so với phong cách truyền thống.",
+    "starEvaluate": "5",
+    "producer": "Oppo",
+    "categoryID": "",
+    "dateUpdate": "13/05/2017",
+    "country": "Trung Quốc",
+    "quantitySold": "12"
+}
+
+{
+    "productID": "P008",
+    "name": " iPhone 6s 32GB",
+    "oldPrice": "6.790.000",
+    "newPrice": "5.790.000",
+    "img": "/img/iphone_s6.jpg",
+    "description": "iPhone 6S 32GB có khung được làm từ Nhôm Aluminum 7000 Series bền chắc để khắc phục tình trạng bẻ cong máy như các dòng iPhone trước",
+    "starEvaluate": "5",
+    "producer": "Apple",
+    "categoryID": "",
+    "dateUpdate": "13/05/2019",
+    "country": "Mỹ",
+    "quantitySold": "12"
+}
+
+{
+    "productID": "P009",
+    "name": "Nokia 5.1 Plus",
+    "oldPrice": "2.990.000",
+    "newPrice": "1.990.000",
+    "img": "/img/nokia_5.1_plus.jpg",
+    "description": "Điện Thoại Nokia 5.1 Plus - Hàng Chính Hãng được hoàn thiện rất chắc chắn tạo nên một chiếc điện thoại cứng cáp, cho cảm giác đầm tay khi cầm. Đồng thời, khung kim loại cùng phần mặt lưng làm từ kính bóng bẩy giúp máy toát lên một vẻ đẹp rất sang trọng.",
+    "starEvaluate": "5",
+    "producer": "Nokia",
+    "categoryID": "",
+    "dateUpdate": "13/05/2016",
+    "country": "Trung Quốc",
+    "quantitySold": "12"
+}
+
+{
+    "productID": "P0010",
+    "name": "Xiaomi Mi Mix 2 (Black)",
+    "oldPrice": "12.990.000",
+    "newPrice": "11.990.000",
+    "img": "/img/xiaomi_mi_mix2.jpg",
+    "description": "Điện thoại Xiaomi Mi Mix 2 là phiên bản mới được chế tác từ chất liệu kim loại và gốm, trong đó phần khung làm bằng kim loại được đặt giữa hai tấm gốm. Chính chất liệu gốm đã tạo nên vẻ đẹp sang trọng, tinh tế nhưng đầy cứng cáp cho dòng Mi Mix 2 này.",
+    "starEvaluate": "5",
+    "producer": "Xiaomi",
+    "categoryID": "",
+    "dateUpdate": "13/05/2016",
+    "country": "Trung Quốc",
+    "quantitySold": "12"
+}
+
+{
+    "productID": "P0011",
+    "name": "Samsung Galaxy Note 9",
+    "oldPrice": "21.150.000",
+    "newPrice": "20.150.000",
+    "img": "/img/samsung_galaxy_note9",
+    "description": "Samsung Galaxy Note 9 sở hữu thiết kế hợp kim nguyên khối sang trọng kết hợp khung viền kim loại sắc sảo và chắc chắn với phong cách thiết kế đa diện",
+    "starEvaluate": "5",
+    "producer": "Samsung",
+    "categoryID": "",
+    "dateUpdate": "13/03/2019",
+    "country": "Hàn Quốc",
+    "quantitySold": "12"
+}
+
+{
+    "productID": "P0012",
+    "name": "Samsung Galaxy S9 Plus",
+    "oldPrice": "11.990.000",
+    "newPrice": "10.990.000",
+    "img": "/img/samsung_galaxy_s9_plus.jpg",
+    "description": "Điện Thoại Samsung Galaxy S9 Plus có thiết kế tinh tế với những chi tiết nhỏ hoàn thiện hơn cùng màn hình tràn viền mang đến một tổng thể thiết kế liền mạch. Hệ thống quét mống mắt được đặt ẩn bên trong thiết bị để tạo ra màn hình Vô Cực trọn vẹn.",
+    "starEvaluate": "5",
+    "producer": "Samsung",
+    "categoryID": "",
+    "dateUpdate": "13/05/2017",
+    "country": "Hàn Quốc",
+    "quantitySold": "12"
+}
+
+{
+    "productID": "P0013",
+    "name": "Samsung Galaxy M20",
+    "oldPrice": "4.190.000",
+    "newPrice": "3.190.000",
+    "img": "/img/samsung_galaxy_m20.jpg",
+    "description": "Điện Thoại Samsung Galaxy M20 có thiết kế nguyên khối, mặt kính cong 2.5D bo góc tạo cảm giác chắc tay khi cầm điện thoại. Màn hình tràn viền Infinity-V của Galaxy M20 có kích thước 6.3 inch với độ phân giải cao lên tới Full HD+ đem lại hình ảnh sống động và đẹp mắt",
+    "starEvaluate": "5",
+    "producer": "Samsung",
+    "categoryID": "",
+    "dateUpdate": "10/05/2019",
+    "country": "Hàn Quốc",
+    "quantitySold": "12"
+}
+
+{
+    "productID": "P0014",
+    "name": "iPhone 7 32GB",
+    "oldPrice": "8.990.000",
+    "newPrice": "7.990.000",
+    "img": "/img/iphone_7.jpg",
+    "description": "Điện Thoại iPhone 7 32GB - Hàng Chính Hãng FPT với kích thước 138.3 x 67.1 x 7.1 mm mỏng nhẹ và thiết kế tương tự như bộ đôi iPhone 6s/6s Plus, tuy nhiên phần dải nhựa bắt sóng không cắt ngang mặt lưng như phiên bản cũ mà được chuyển sang phần cạnh trên của sản phẩm",
+    "starEvaluate": "5",
+    "producer": "Apple",
+    "categoryID": "",
+    "dateUpdate": "13/05/2019",
+    "country": "Mỹ",
+    "quantitySold": "12"
+}
+
+{
+    "productID": "P0015",
+    "name": "Nokia 6.1 Plus",
+    "oldPrice": "3.990.000",
+    "newPrice": "2.990.000",
+    "img": "/img/nokia_6.jpg",
+    "description": "Điện thoại Nokia 6.1 Plus được lột xác khi sử dụng kết hợp giữa khung kim loại và kính cao cấp đã tạo nên một dáng vẻ sang trọng và đem đến tính thẩm mỹ cũng như sự trẻ trung, năng động.",
+    "starEvaluate": "5",
+    "producer": "Nokia",
+    "categoryID": "",
+    "dateUpdate": "12/03/2019",
+    "country": "Trung Quốc",
+    "quantitySold": "12"
+}
+
+{
+    "productID": "P0016",
+    "name": "Xiaomi Mi A2 Lite",
+    "oldPrice": "4.040.000",
+    "newPrice": "3.040.000",
+    "img": "/img/xiaomi_a2_lite.jpg",
+    "description": "Điện Thoại Xiaomi Mi A2 Lite có thiết kế nguyên khối kim loại chắc chắn, bốn góc bo tròn nhẹ nhàng càng làm điện thoại thêm phần sang trọng và đẹp mắt. Viền màn hình mỏng khiến chiếc điện thoại thêm phần gọn gàng, cầm chắc tay, cho bạn dễ dàng mang theo bất cứ nơi đâu.",
+    "starEvaluate": "5",
+    "producer": "Xiaomi",
+    "categoryID": "",
+    "dateUpdate": "10/04/2019",
+    "country": "Trung Quốc",
+    "quantitySold": "12"
+}
+
+{
+    "productID": "P0017",
+    "name": "OPPO F3",
+    "oldPrice": "3.190.000",
+    "newPrice": "2.190.000",
+    "img": "/img/oppo_f3.jpg",
+    "description": "Điện Thoại OPPO F3 mỏng hơn đến 27% so với F1s nhờ phần viền bezel siêu mỏng chỉ 2.0mm. Màn hình sát cạnh này của Oppo F3 cho người dùng cảm giác thanh thoát khi không bị giới hạn giữa phần viền và màn hình chính.",
+    "starEvaluate": "5",
+    "producer": "Oppo",
+    "categoryID": "",
+    "dateUpdate": "01/04/2019",
+    "country": "Trung Quốc",
+    "quantitySold": "12"
+}
+
+
+
+
+
+
+
+
+
