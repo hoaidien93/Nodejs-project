@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="stylesheets/signup.css">
 </head>
 <body>
-
+	{{#if Notify}}
+        <script>alert("Đăng ký thất bại");</script>
+    {{/if}}
     <div class="main">
 
         <section class="signup">
@@ -23,17 +25,20 @@
                     <form method="POST" id="signup-form" class="signup-form" >
                         <h2 class="form-title" style="color: green ; font-family: JosefinSans-Bold" >Tạo tài khoản</h2>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="name" id="name" placeholder="Họ và tên"/>
+                            <input type="text" required class="form-input" name="name" id="name" placeholder="Họ và tên" minlength="6" maxlength="50"/>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-input" name="email" id="email" placeholder="Email"/>
+                            <input type="text" required class="form-input" name="phoneNumber" id="phoneNumber" placeholder="Số điện thoại" minlength="6" maxlength="50"/>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="password" id="password" placeholder="Mật khẩu"/>
+                            <input type="email" required class="form-input" name="email" id="email" placeholder="Email"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" required minlength="6" class="form-input" name="password" id="password" placeholder="Mật khẩu"/>
                             <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Nhập lại mật khẩu"/>
+                            <input type="password" required minlength="6" class="form-input" name="re_password" id="re_password" placeholder="Nhập lại mật khẩu"/>
                         </div>
                         <div class="form-group">
                             <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
@@ -55,5 +60,6 @@
     <!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="javascripts/main_huongnq.js"></script>
+    <script src="javascripts/signUp.js"></script>
 </body>
 </html>

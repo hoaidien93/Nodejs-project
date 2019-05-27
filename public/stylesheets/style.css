@@ -1112,7 +1112,7 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
     padding-top: 40px;
     padding-bottom: 40px;
 }
-.update-info input[type="text"],.update-info input[type="date"],.update-info input[type="email"]{
+.update-info input[type="text"],.update-info input[type="date"],.update-info input[type="email"],.update-info input[type="password"]{
     width: 20%;
 }
 .single-shop-product h2 {

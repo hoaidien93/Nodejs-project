@@ -26,22 +26,27 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
+	{{#if Notify}}
+    	<script>alert("Đăng ký thành công");</script>
+	{{/if}}
+	{{#if isLoginFail}}
+    	<script>alert("Đăng nhập thất bại");</script>
+	{{/if}}
 	<div class="limiter">
 		<div class="container-login100" >
 			<div class="wrap-login100">
-				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="/home">
+				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="/login" method="POST">
 					<span class="login100-form-title">
 						Đăng nhập
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-						<input class="input100" type="text" name="username" placeholder="Tên tài khoản">
+						<input required class="input100" type="text" name="username" placeholder="Tên tài khoản">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Please enter password">
-						<input class="input100" type="password" name="pass" placeholder="Mật khẩu">
+						<input required class="input100" type="password" name="pass" placeholder="Mật khẩu">
 						<span class="focus-input100"></span>
 					</div>
 

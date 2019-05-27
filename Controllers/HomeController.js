@@ -1,7 +1,13 @@
 ﻿var Model = require('../Model/Model');
 var model = new Model();
 class HomeController{
+
     async getIndex(req,res){
+        // Check session
+        var sess = req.session;
+        if (typeof sess.email === 'undefined') {
+            return res.redirect('/login');
+        }
         let limitNewProduct = 6;
         let limitBestSelling = 3;
 
