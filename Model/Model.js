@@ -65,6 +65,14 @@ class Model {
         var result = await dbo.collection("Products").find(condition).count();
         return result;
     }
+
+    async getProduct(productID) {
+        var query = {
+            productID: productID
+        }
+        var result = await dbo.collection("Products").find(query).toArray();
+        return result;
+    }
 }
 
 module.exports = Model;

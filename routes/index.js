@@ -20,7 +20,12 @@ var historyController = new HistoryController();
 /* Router here. */
 router.get('/home', homeController.getIndex);
 router.get('/category', categoryController.getCategory);
+//Cart
 router.get('/cart', cartController.getCart);
+router.post('/addToCart',cartController.addToCart);
+router.post('/removeProduct',cartController.removeProduct);
+
+
 router.get('/checkout', checkoutController.getCheckOut);
 router.get('/product', productController.getProduct);
 router.get('/search', searchController.getSearch);

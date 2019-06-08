@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const hbs = require('hbs');
 var session		=	require('express-session');
+var bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -16,7 +17,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 hbs.registerPartials(__dirname + '/views/partials');
-
+app.use(bodyParser.json()); // for parsing application/json
 app.use(session({secret: 'hdd',saveUninitialized: true,resave: true,cookie: { maxAge: 30*60*1000 }}));
 app.use(logger('dev'));
 app.use(express.json());

@@ -84,38 +84,38 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {{#each cart}}
                                     <tr class="cart_item">
-                                        <td class="product-remove">
-                                            <a title="Remove this item" class="remove" href="#">×</a>
+                                        <td class="remove">
+                                            <span title="Remove this item" class="remove-product" for="{{this.productID}}">×</span>
                                         </td>
 
                                         <td class="product-thumbnail">
-                                            <a href="/product"><img width="145" height="145"
+                                            <a href="/product?productID={{this.productID}}"><img width="145" height="145"
                                                     alt="poster_1_up" class="shop_thumbnail"
-                                                    src="images/product-thumb-2.jpg"></a>
+                                                    src="{{this.img}}"></a>
                                         </td>
 
                                         <td class="product-name">
-                                            <a href="/product">Samsung Note 8</a>
+                                            <a href="/product?productID={{this.productID}}">{{this.name}}</a>
                                         </td>
 
                                         <td class="product-price">
-                                            <span class="amount">£15.00</span>
+                                            <span class="price" for="{{this.productID}}">{{this.price}}</span>
                                         </td>
 
                                         <td class="product-quantity">
                                             <div class="quantity buttons_added">
-                                                <input type="button" class="minus" value="-">
                                                 <input type="number" size="4" class="input-text qty text" title="Qty"
-                                                    value="1" min="0" step="1">
-                                                <input type="button" class="plus" value="+">
+                                                    value="{{this.quantity}}" min="1" step="1" for="{{this.productID}}">
                                             </div>
                                         </td>
 
                                         <td class="product-subtotal">
-                                            <span class="amount">£15.00</span>
+                                            <span class="total" for="{{this.productID}}">{{this.total}}</span>
                                         </td>
                                     </tr>
+                                    {{/each}}
                                     <tr>
                                         <td class="actions" colspan="6">
                                             <div class="coupon">
@@ -201,5 +201,34 @@
 $(document).ready(function(){
     $('ul.navbar-nav li').removeClass('active');
     $('li.cart').addClass('active');
+    $('.qty').on('change',function(){
+        var productID = this.getAttribute('for');
+        var quantity = parseInt($(this).val());
+        var price = $(`.price[for=${productID}]`).text();
+        price = parseInt(price.replace(/\./g,''));
+        $(`.total[for=${productID}]`).text(price * quantity);
+    });
+    $('.remove-product').on('click',function(){
+        // Get Product ID
+        var productID = this.getAttribute("for");
+
+        // Class Ajax
+        $.ajax({
+        url: "/removeProduct",
+        method: "post",
+        dataType: "json",
+        async: false,
+        contentType: "application/json",
+        data: JSON.stringify({
+            "productID": productID
+        }),
+        success: function (result) {
+            if(result.status === "Success") alert('Xóa thành công');
+            else alert("Xóa thất bại");
+            // Refresh page
+            location.reload();
+        }
+    })
+    });
 })
 </script>

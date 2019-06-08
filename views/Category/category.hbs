@@ -56,8 +56,7 @@
                     </div>
 
                     <div class="product-option-shop">
-                        <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70"
-                            rel="nofollow" href="/canvas/shop/?add-to-cart=70">Add to cart</a>
+                        <button class="add_to_cart_button" for="{{this.productID}}">Add to cart</button>
                     </div>
                 </div>
             </div>
@@ -75,5 +74,27 @@
 $(document).ready(function(){
     $('ul.navbar-nav li').removeClass('active');
     $('li.category').addClass('active');
+
+    $('.add_to_cart_button').on('click',function(){
+        // Get Product ID
+        var productID =  this.getAttribute('for');
+        // Call Ajax
+        $.ajax({
+        url: "/addToCart",
+        method: "post",
+        dataType: "json",
+        async: false,
+        contentType: "application/json",
+        data: JSON.stringify({
+            "productID": productID
+        }),
+        success: function (result) {
+            if(result.status === "Success") alert('Thêm thành công');
+            else alert("Thêm thất bại");
+            // Refresh page
+            location.reload();
+        }
+    })
+    });
 })
 </script>

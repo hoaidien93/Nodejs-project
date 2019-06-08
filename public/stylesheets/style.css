@@ -1156,3 +1156,10 @@ div.search{
     display: flex;
     align-items: center;
 }
+
+.remove-product{
+    background-color: #268be2;
+    border-radius: 5%;
+    padding: 7px;
+    cursor: pointer;
+}
