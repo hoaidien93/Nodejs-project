@@ -39,18 +39,17 @@ class LoginController{
     }
 
     async postLogin(req,res){
-        var userName = req.body.username;
+        var email = req.body.username;
         var password = req.body.pass;
         // Get Info of account
-        var account = await model.getAccount({"email" : userName});
+        var account = await model.getAccount({"email" : email});
         if(account.length === 1){
             var result = await bcrypt.compare(password, account[0].password);
-            console.log(result);
             if (result){
                 // Store session
                 var sess = req.session;
-                sess.email = userName;
-
+                sess.email = email;
+                sess.userName = account[0].userName;
                 return res.redirect("/home");
             }
         }

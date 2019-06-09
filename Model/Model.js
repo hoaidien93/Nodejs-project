@@ -73,6 +73,35 @@ class Model {
         var result = await dbo.collection("Products").find(query).toArray();
         return result;
     }
+
+    async addComment(productID,name,comment){
+        //Get Date
+        var date = Date.now();
+        // format H:i:s d/m/Y
+        var query = {
+            productID: productID,
+            name: name,
+            comment: comment,
+            dateComment: date
+        }
+        var result = await dbo.collection("ProductComment").insertOne(query);
+        return result;
+    }
+
+    async getProductComment(productID){
+        var query = {
+            productID: productID
+        }
+        var result = await dbo.collection("ProductComment").find(query).sort({ dateComment: -1 }).toArray();
+        result.forEach((element) => {
+            var dateComment = new Date(element.dateComment);
+            var time = dateComment.getHours() + ":" + dateComment.getMinutes() + ":" + dateComment.getSeconds();
+            var date = dateComment.getDate() + '/' + (dateComment.getMonth()+1)+ '/' + dateComment.getFullYear();
+            element.dateTime = time + " " + date;
+        })
+
+        return result;
+    }
 }
 
 module.exports = Model;

@@ -27,7 +27,12 @@ router.post('/removeProduct',cartController.removeProduct);
 
 
 router.get('/checkout', checkoutController.getCheckOut);
+
+//Product
 router.get('/product', productController.getProduct);
+router.post('/product',productController.postComment);
+
+
 router.get('/search', searchController.getSearch);
 router.get('/login',loginController.getLogin);
 router.post('/login',loginController.postLogin);

@@ -152,7 +152,24 @@
                         </div>
                     </div>
 
-
+                    <div class="comment">
+                        <h3>Bình luận</h3>
+                        {{#each comment}}
+                            <div class="comment-box">
+                                <span>{{this.name}}</span> :
+                                <span>{{this.comment}}</span>
+                                <span style="font-size: 10px;color: #5a5555;">lúc {{this.dateTime}}</span>
+                            </div>
+                        {{/each}}
+                        <form method="POST" action="">
+                            <div class="add-comment">
+                                <input type="hidden" name="productID" value="{{product.productID}}">
+                                <input type="text" class="w-20" placeholder="Tên bạn" name="name" required value="{{name}}">
+                                <input type="text" class="w-65" placeholder="Bình luận" name="comment" required>
+                                <input type="submit" class="w-15 btn-add-comment" value="Thêm bình luận">
+                            </div>
+                        </form>
+                    </div>
                     <div class="related-products-wrapper">
                         <h2 class="related-products-title">Sản phẩm gần đây</h2>
                         <div class="related-products-carousel">
