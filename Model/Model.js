@@ -74,7 +74,7 @@ class Model {
         return result;
     }
 
-    async addComment(productID,name,comment){
+    async addComment(productID, name, comment) {
         //Get Date
         var date = Date.now();
         // format H:i:s d/m/Y
@@ -88,15 +88,24 @@ class Model {
         return result;
     }
 
-    async getProductComment(productID){
+    async getTotalPageComment(productID) {
         var query = {
             productID: productID
         }
-        var result = await dbo.collection("ProductComment").find(query).sort({ dateComment: -1 }).toArray();
+        var  result = await dbo.collection("ProductComment").find(query).count();
+        var totalPage =  Math.ceil(result / PAGE_SIZE);
+        return totalPage;
+    }
+
+    async getProductComment(productID, pageComment) {
+        var query = {
+            productID: productID
+        }
+        var result = await dbo.collection("ProductComment").find(query).sort({ dateComment: -1 }).skip(PAGE_SIZE * (pageComment - 1)).limit(PAGE_SIZE).toArray();
         result.forEach((element) => {
             var dateComment = new Date(element.dateComment);
             var time = dateComment.getHours() + ":" + dateComment.getMinutes() + ":" + dateComment.getSeconds();
-            var date = dateComment.getDate() + '/' + (dateComment.getMonth()+1)+ '/' + dateComment.getFullYear();
+            var date = dateComment.getDate() + '/' + (dateComment.getMonth() + 1) + '/' + dateComment.getFullYear();
             element.dateTime = time + " " + date;
         })
 
