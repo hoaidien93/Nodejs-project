@@ -15,7 +15,6 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
 hbs.registerPartials(__dirname + '/views/partials');
 app.use(bodyParser.json()); // for parsing application/json
 // parse application/x-www-form-urlencoded
@@ -45,6 +44,17 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+
+hbs.registerHelper('equal', function(lvalue, rvalue, options) {
+  if (arguments.length < 3)
+      throw new Error("Handlebars Helper equal needs 2 parameters");
+  if( lvalue!=rvalue ) {
+      return options.inverse(this);
+  } else {
+      return options.fn(this);
+  }
 });
 
 module.exports = app;

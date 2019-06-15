@@ -1,3 +1,4 @@
+
 <div class="product-big-title-area">
     <div class="container">
         <div class="row">
@@ -61,107 +62,55 @@
             <div class="col-md-8">
                 <h2 class="search-h2">Tìm kiếm</h2>
                 <div class="search-form">
-                    <form>
+                    <form method="GET">
                         <div class="col-md-4 col-sm-6">
-                            <span>Loại sản phẩm</span>
-                            <select>
-                                <option>Điện thoại</option>
-                                <option>Tivi</option>
-                                <option>Máy tính</option>
+                            <span>Xuất Xứ</span>
+                            <select name="XuatXu">
+                                <option value="">----</option>
+                                {{#each optionXuatXu}}
+                                    <option value="{{this}}"
+                                    {{#equal this ../XuatXu}}
+                                            selected=""
+                                        {{/equal}}
+                                    >{{this}}</option>
+                                {{/each}}
                             </select>
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <span>Nhà sản xuất</span>
-                            <select>
-                                <option>Apple</option>
-                                <option>Samsung</option>
-                                <option>Sony</option>
-                                <option>LG</option>
+                            <select name="NhaSanXuat">
+                                <option value="">----</option>
+                                {{#each optionNhaSanXuat}}
+                                    <option value="{{this}}"
+                                        {{#equal this ../NhaSanXuat}}
+                                            selected=""
+                                        {{/equal}}
+                                    >{{this}}</option>
+                                {{/each}}    
                             </select>
                         </div>
-                        <input type="text" class="form-control search-input" placeholder="Tìm kiếm..." />
-                        <button class="btn btn-primary">Tìm kiếm</button>
-
+                        <input type="text" class="form-control search-input" name="TuKhoa" placeholder="Tên sản phẩm" value="{{TuKhoa}}"/>
+                        <input type="submit" class="btn btn-primary btn-find" value="Tìm Kiếm"/>
                     </form>
+                    <hd-paging current-page="{{page}}" max-page="{{maxPage}}" for="search?XuatXu={{XuatXu}}&NhaSanXuat={{NhaSanXuat}}&TuKhoa={{TuKhoa}}"></hd-paging>
                 </div>
                 <div class="product-content-right">
                     <div class="woocommerce">
                         <div class="cart-collaterals">
                             <div class="cross-sells">
                                 <ul class="products">
+                                    {{#each result}}
                                     <li class="product">
-                                        <a href="/product">
+                                        <a href="/product/{{this.productID}}">
                                             <img width="325" height="325" alt="T_4_front"
                                                 class="attachment-shop_catalog wp-post-image"
-                                                src="images/product-2.jpg">
-                                            <h3>Ship Your Idea</h3>
-                                            <span class="price"><span class="amount">£20.00</span></span>
+                                                src="{{this.img}}">
+                                            <h3>{{this.name}}</h3>
+                                            <span class="price"><span class="amount">{{this.newPrice}} VNĐ</span></span>
                                         </a>
-
-                                        <a class="add_to_cart_button" data-quantity="1" data-product_sku=""
-                                            data-product_id="22" rel="nofollow" href="/product">Lựa chọn</a>
+                                        <button class="add_to_cart_button" for="{{this.productID}}">Thêm vào giỏ hàng</button>
                                     </li>
-
-                                    <li class="product">
-                                        <a href="/product">
-                                            <img width="325" height="325" alt="T_4_front"
-                                                class="attachment-shop_catalog wp-post-image"
-                                                src="images/product-4.jpg">
-                                            <h3>Ship Your Idea</h3>
-                                            <span class="price"><span class="amount">£20.00</span></span>
-                                        </a>
-
-                                        <a class="add_to_cart_button" data-quantity="1" data-product_sku=""
-                                            data-product_id="22" rel="nofollow" href="/product">Lựa chọn</a>
-                                    </li>
-                                    <li class="product">
-                                        <a href="/product">
-                                            <img width="325" height="325" alt="T_4_front"
-                                                class="attachment-shop_catalog wp-post-image"
-                                                src="images/product-4.jpg">
-                                            <h3>Ship Your Idea</h3>
-                                            <span class="price"><span class="amount">£20.00</span></span>
-                                        </a>
-
-                                        <a class="add_to_cart_button" data-quantity="1" data-product_sku=""
-                                            data-product_id="22" rel="nofollow" href="/product">Lựa chọn</a>
-                                    </li>
-                                    <li class="product">
-                                        <a href="/product">
-                                            <img width="325" height="325" alt="T_4_front"
-                                                class="attachment-shop_catalog wp-post-image"
-                                                src="images/product-4.jpg">
-                                            <h3>Ship Your Idea</h3>
-                                            <span class="price"><span class="amount">£20.00</span></span>
-                                        </a>
-
-                                        <a class="add_to_cart_button" data-quantity="1" data-product_sku=""
-                                            data-product_id="22" rel="nofollow" href="/product">Lựa chọn</a>
-                                    </li>
-                                    <li class="product">
-                                        <a href="/product">
-                                            <img width="325" height="325" alt="T_4_front"
-                                                class="attachment-shop_catalog wp-post-image"
-                                                src="images/product-4.jpg">
-                                            <h3>Ship Your Idea</h3>
-                                            <span class="price"><span class="amount">£20.00</span></span>
-                                        </a>
-
-                                        <a class="add_to_cart_button" data-quantity="1" data-product_sku=""
-                                            data-product_id="22" rel="nofollow" href="/product">Lựa chọn</a>
-                                    </li>
-                                    <li class="product">
-                                        <a href="/product">
-                                            <img width="325" height="325" alt="T_4_front"
-                                                class="attachment-shop_catalog wp-post-image"
-                                                src="images/product-2.jpg">
-                                            <h3>Ship Your Idea</h3>
-                                            <span class="price"><span class="amount">£20.00</span></span>
-                                        </a>
-
-                                        <a class="add_to_cart_button" data-quantity="1" data-product_sku=""
-                                            data-product_id="22" rel="nofollow" href="/product">Lựa chọn</a>
-                                    </li>
+                                    {{/each}}
                                 </ul>
                             </div>
                         </div>
@@ -175,5 +124,27 @@
     $(document).ready(function () {
         $('ul.navbar-nav li').removeClass('active');
         $('li.search').addClass('active');
+
+        $('.add_to_cart_button').on('click',function(){
+        // Get Product ID
+        var productID =  this.getAttribute('for');
+        // Call Ajax
+        $.ajax({
+        url: "/addToCart",
+        method: "post",
+        dataType: "json",
+        async: false,
+        contentType: "application/json",
+        data: JSON.stringify({
+            "productID": productID
+        }),
+        success: function (result) {
+            if(result.status === "Success") alert('Thêm thành công');
+            else alert("Thêm thất bại");
+            // Refresh page
+            location.reload();
+        }
+        });
     })
+    });
 </script>
