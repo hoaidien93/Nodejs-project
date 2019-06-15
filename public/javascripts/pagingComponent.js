@@ -54,26 +54,28 @@ class PagingComponent extends HTMLElement{
         var str="";
         var className = "";
         var me =this;
-
+        // Check it contain query before
+        var symbol = "?";
+        if(this.destination.indexOf("?") > 0) symbol = "&";
         // Previous
         var previous = this.listPage[0] > 1 ? this.listPage[0] - 1 : 1;
         str += `
         <li>
-            <a href="/${this.destination}?page=${previous}" aria-label="Previous">
+            <a href="/${this.destination}${symbol}page=${previous}" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>`
         this.listPage.forEach((element)=>{
             if(element == me.currentPage) className="active";
             else className = "";
-            str +=`<li class="${className}"><a href="/${me.destination}?page=${element}">${element}</a></li>`;   
+            str +=`<li class="${className}"><a href="/${me.destination}${symbol}page=${element}">${element}</a></li>`;   
         });
         //Next
         var lastPage = this.listPage[this.listPage.length - 1];
         var next = this.maxPage > lastPage ? lastPage + 1 : this.maxPage ;
         str += `
         <li>
-            <a href="/${this.destination}?page=${next}" aria-label="Next">
+            <a href="/${this.destination}${symbol}page=${next}" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
             </a>
         </li>`;
