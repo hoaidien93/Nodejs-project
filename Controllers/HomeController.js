@@ -3,6 +3,7 @@ var model = new Model();
 class HomeController {
 
     async getIndex(req, res) {
+        var status = req.query.status || "";
         // Check session
         var sess = req.session;
         if (typeof sess.email === 'undefined') {
@@ -22,7 +23,7 @@ class HomeController {
         for (var i = 0; i < 3; i++) {
             childNewProduct.push(newProducts[i]);
         }
-        return res.render('Home/home', {
+        var renderData = {
             isLogin: true,
             title: "Trang chủ",
             newProducts: newProducts,
@@ -30,7 +31,11 @@ class HomeController {
             childNewProduct: childNewProduct,
             total: total,
             count: count
-        });
+        };
+        if (status == "ActiveSuccess"){
+            renderData.status = true;
+        }
+        return res.render('Home/home', renderData);
     }
 }
 

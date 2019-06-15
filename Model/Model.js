@@ -2,7 +2,7 @@ var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://hoaidien:hoaidien0510@ds155606.mlab.com:55606/nodejs";
 var dbo;
 const PAGE_SIZE = 10;
-
+var crypto = require("crypto");
 class Model {
     constructor() {
         //Connect dtb:
@@ -172,6 +172,66 @@ class Model {
     async getOptionNhaSanXuat(){
         var result = await dbo.collection("Products").distinct("producer");
         return result;
+    }
+
+    async activeAccount(email,token){
+        var query = {
+            "email": email,
+            "token": token
+        }
+        var checkExists = await dbo.collection("Users").find(query).toArray();
+        if(checkExists.length === 0) return "";
+        // Actice account
+        var query = {
+            "email": email
+        }
+        // Change token
+        var newToken = crypto.randomBytes(20).toString('hex');
+
+        var newInfo = {
+            "active": "1",
+            "token": newToken
+        }
+        await dbo.collection("Users").updateOne(query, { $set: newInfo });
+
+        // Return username
+        return checkExists[0].userName;
+    }
+
+    updateToken(email,token){
+        var query = {
+            "email": email
+        }
+        var newToken = {
+            "token": token
+        }
+        dbo.collection("Users").updateOne(query, { $set: newToken });
+        return true;
+    }
+
+    async checkToken(email,token){
+        var query = {
+            "email": email,
+            "token": token
+        }
+        var checkExists = await dbo.collection("Users").find(query).count();
+        if(checkExists) return true;
+        return false;
+    }
+
+    updatePassword(email,password){
+        var query = {
+            "email": email
+        }
+        // Change token
+        var newToken = crypto.randomBytes(20).toString('hex');
+        var newInfo = {
+            "password": password,
+            "token": newToken
+        }
+        
+        dbo.collection("Users").updateOne(query, { $set: newInfo });
+        return true;
     }
 }
 

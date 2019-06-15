@@ -39,7 +39,12 @@ router.post('/login',loginController.postLogin);
 router.get('/',loginController.getLogin);
 router.get('/sign-up',loginController.getSignUp);
 router.post('/sign-up',loginController.postSignUp);
+router.get('/activeAccount',loginController.activeAccount);
 router.get('/forgotPass',loginController.getForgotPass);
+router.post('/forgotPass',loginController.postForgotPass);
+router.get('/retrivePassword',loginController.retrivePassword);
+router.post('/retrivePassword',loginController.postRetrivePassword);
+
 router.get('/update-info',loginController.getUpdateInfo);
 router.post('/update-info',loginController.postUpdateInfo);
 router.get('/history',historyController.getHistory);
