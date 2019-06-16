@@ -24,9 +24,10 @@ router.get('/category', categoryController.getCategory);
 router.get('/cart', cartController.getCart);
 router.post('/addToCart',cartController.addToCart);
 router.post('/removeProduct',cartController.removeProduct);
-
+router.post('/updateProduct',cartController.updateProduct);
 
 router.get('/checkout', checkoutController.getCheckOut);
+router.post('/checkout', checkoutController.postCheckOut);
 
 //Product
 router.get('/product/:productID', productController.getProduct);

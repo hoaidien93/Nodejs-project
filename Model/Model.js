@@ -233,6 +233,27 @@ class Model {
         dbo.collection("Users").updateOne(query, { $set: newInfo });
         return true;
     }
+
+    updateHistory(email,total){
+        var today = Date.now();
+        var query = {
+            "email": email,
+            "date": today,
+            "status": "Đã xác nhận",
+            "total": total
+        }
+        dbo.collection("History").insertOne(query);
+    }
+
+    async getHistory(email){
+        var query = {
+            "email" : email
+        }
+
+        var result = await dbo.collection("History").find(query).toArray();
+
+        return result;
+    }
 }
 
 module.exports = Model;

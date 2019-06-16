@@ -1,10 +1,12 @@
 var Model = require("../Model/Model");
 var model = new Model();
 class SearchController{
+    
     async getSearch(req,res){
         var sess = req.session;
         var page = req.query.page || 1;
         var total = sess.total || 0;
+        total = total.toString().replace(/(.)(?=(\d{3})+$)/g,'$1.')
         total += " VNĐ";
         var count = sess.count || 0;
         // Get option Xuat Xu
@@ -21,7 +23,9 @@ class SearchController{
         if(maxPage != 0){
             result = await model.getProductSearch(XuatXu,NhaSanXuat,TuKhoa,page);
         }
-
+        // Get new product
+        var newProducts = await model.getNewProduct(5);
+        
         return res.render('Search/search',{
             total: total,
             count: count,
@@ -34,7 +38,8 @@ class SearchController{
             title: "Tìm kiếm",
             result: result,
             page: page,
-            maxPage: maxPage
+            maxPage: maxPage,
+            newProducts: newProducts
         });
     }
 }

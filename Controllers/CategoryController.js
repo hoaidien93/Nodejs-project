@@ -7,6 +7,7 @@ class CatergoryController {
         var sess = req.session;
         var page = req.query.page || 1;
         var total = sess.total || 0;
+        total = total.toString().replace(/(.)(?=(\d{3})+$)/g,'$1.')
         total += " VNĐ";
         var count = sess.count || 0;
         var XuatXu = req.query.XuatXu || "";

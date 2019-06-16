@@ -16,45 +16,11 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="single-sidebar">
-                    <h2 class="sidebar-title">Sản phẩm</h2>
-                    <div class="thubmnail-recent">
-                        <img src="images/product-thumb-1.jpg" class="recent-thumb" alt="">
-                        <h2><a href="/product">Sony Smart TV - 2015</a></h2>
-                        <div class="product-sidebar-price">
-                            <ins>$700.00</ins> <del>$800.00</del>
-                        </div>
-                    </div>
-                    <div class="thubmnail-recent">
-                        <img src="images/product-thumb-1.jpg" class="recent-thumb" alt="">
-                        <h2><a href="/product">Sony Smart TV - 2015</a></h2>
-                        <div class="product-sidebar-price">
-                            <ins>$700.00</ins> <del>$800.00</del>
-                        </div>
-                    </div>
-                    <div class="thubmnail-recent">
-                        <img src="images/product-thumb-1.jpg" class="recent-thumb" alt="">
-                        <h2><a href="/product">Sony Smart TV - 2015</a></h2>
-                        <div class="product-sidebar-price">
-                            <ins>$700.00</ins> <del>$800.00</del>
-                        </div>
-                    </div>
-                    <div class="thubmnail-recent">
-                        <img src="images/product-thumb-1.jpg" class="recent-thumb" alt="">
-                        <h2><a href="/product">Sony Smart TV - 2015</a></h2>
-                        <div class="product-sidebar-price">
-                            <ins>$700.00</ins> <del>$800.00</del>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="single-sidebar">
                     <h2 class="sidebar-title">Sản phẩm mới</h2>
-                    <ul>
-                        <li><a href="#">Sony Smart TV - 2015</a></li>
-                        <li><a href="#">Sony Smart TV - 2015</a></li>
-                        <li><a href="#">Sony Smart TV - 2015</a></li>
-                        <li><a href="#">Sony Smart TV - 2015</a></li>
-                        <li><a href="#">Sony Smart TV - 2015</a></li>
+                     <ul>
+                        {{#each newProducts}}
+                            <li><a href="/product/{{this.productID}}">{{this.name}}</a></li>
+                        {{/each}}
                     </ul>
                 </div>
             </div>

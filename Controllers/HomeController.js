@@ -6,12 +6,8 @@ class HomeController {
         var status = req.query.status || "";
         // Check session
         var sess = req.session;
-        /*
-        if (typeof sess.email === 'undefined') {
-            return res.redirect('/login');
-        }
-        */
         var total = sess.total || "0";
+        total = total.toString().replace(/(.)(?=(\d{3})+$)/g,'$1.')
         total += " VNĐ";
         var count = sess.count || 0;
         let limitNewProduct = 6;

@@ -5,6 +5,8 @@ class CartController {
     async getCart(req, res) {
         var sess = req.session;
         var total = sess.total || 0;
+        // Format total
+        total = total.toString().replace(/(.)(?=(\d{3})+$)/g,'$1.')
         total += " VNĐ";
         var count = sess.count || 0;
         // Get Cart
@@ -14,15 +16,20 @@ class CartController {
             product = await model.getProduct(element.productID);
             element.name = product[0].name;
             element.price = product[0].newPrice;
-            element.total = parseInt(product[0].newPrice.replace(/\./g, '')) * element.quantity;
+            var intTotal = parseInt(product[0].newPrice.replace(/\./g, '')) * element.quantity;
+            element.total = intTotal.toString().replace(/(.)(?=(\d{3})+$)/g,'$1.');
             element.img = product[0].img;
         };
+        // Get new product
+        var newProducts = await model.getNewProduct(5);
+
         return res.render('Cart/cart', {
             isLogin: true,
             title: "Giỏ hàng",
             total: total,
             cart: cart,
-            count: count
+            count: count,
+            newProducts: newProducts
         });
     }
 
@@ -56,7 +63,9 @@ class CartController {
         if (!isExistsInCart) {
             cart.push({
                 productID: productID,
-                quantity: 1
+                quantity: 1,
+                price: productInfo[0].newPrice,
+                name: productInfo[0].name
             });
         }
         // Update total
@@ -95,6 +104,37 @@ class CartController {
         return res.send({
             status: "Success"
         });
+    }
+
+    updateProduct(req,res){
+        var arrChange = req.body;
+        var sess = req.session;
+
+        if(typeof(sess.cart) === "undefined") return res.send({
+           'status' : "Fail"
+        });
+
+        var cart = sess.cart;
+        for(var i = 0;i < cart.length; i++){
+            for(var j=0;j<arrChange.length;j++){
+                if(cart[i].productID === arrChange[j].productID){
+                    var oldQty = cart[i].quantity;
+                    var newQty = arrChange[j].quantity;
+                    // Update qty
+                    cart[i].quantity = newQty;
+                    // update count
+                    sess.count = sess.count - parseInt(oldQty) + parseInt(newQty);
+                    // Update total
+                    var price = parseInt(cart[i].price.replace(/\./g, ''));
+                    sess.total = sess.total + (parseInt(newQty) - parseInt(oldQty))* price;
+
+                }
+            }
+        }
+        return res.send({
+            'status': "Success"
+        });
+        
     }
 }
 

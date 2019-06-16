@@ -1,3 +1,9 @@
+{{#if updated}}
+    <script>alert("Cập nhật thành công");</script>
+{{/if}}
+{{#if notCorrectPassword}}
+    <script>alert("Mật khẩu cũ không khớp");</script>
+{{/if}}
 <section class="update-info">
     <!-- <img src="images/signup-bg.jpg" alt=""> -->
     <div class="container">
@@ -13,16 +19,24 @@
                     <input type="email" class="form-input" required minlength="6" maxlength="20" name="email" id="email" disabled value="{{account.email}}" />
                 </div>
                 <div class="form-group">
-                    <label>Mật khẩu: </label>
+                    <label>Số điện thoại: </label>
+                    <input type="text" class="form-input" required minlength="6" maxlength="20" name="phone" id="phone"  value="{{account.phoneNumber}}" />
+                </div>
+                <div class="form-group">
+                    <hr/>
+                    <h4 style="color: green ; font-family: JosefinSans-Bold">Đổi mật khẩu</h4>
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu cũ: </label>
+                    <input type="password" class="form-input" name="oldPassword" id="old-password" placeholder="**********" />
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu mới: </label>
                     <input type="password" class="form-input" name="password" id="password" placeholder="**********" />
                 </div>
                 <div class="form-group">
                     <label>Nhập lại mật khẩu: </label>
                     <input type="password" class="form-input" name="re-password" id="re-password" placeholder="**********" />
-                </div>
-                <div class="form-group">
-                    <label>Số điện thoại: </label>
-                    <input type="text" class="form-input" required minlength="6" maxlength="20" name="phone" id="phone"  value="{{account.phoneNumber}}" />
                 </div>
                 <div class="form-group">
                     <input type="submit" name="submit" id="submit" class="form-submit" value="Cập nhật" />
@@ -33,4 +47,4 @@
 </section>
 <!-- JS -->
 <script src="vendor/jquery/jquery.min.js"></script>
-<script src="javascripts//updateInfo.js"></script>
+<script src="javascripts/updateInfo.js"></script>
