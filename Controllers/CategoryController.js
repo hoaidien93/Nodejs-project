@@ -9,12 +9,24 @@ class CatergoryController {
         var total = sess.total || 0;
         total += " VNĐ";
         var count = sess.count || 0;
+        var XuatXu = req.query.XuatXu || "";
+        var NhaSanXuat = req.query.NhaSanXuat || "";
+        var query = {};
+        if (XuatXu) {
+            query.country = XuatXu;
+        }
+        if (NhaSanXuat) {
+            query.producer = NhaSanXuat;
+        }
         // Get Max Page
-        var getMaxProducts = await model.getMaxProducts({});
+        var getMaxProducts = await model.getMaxProducts(query);
         var maxPage = Math.ceil(getMaxProducts / PAGE_SIZE);
         page = maxPage < page ? maxPage : page;
+        // Get option Xuat Xu
+        var optionXuatXu = await model.getOptionXuatXu();
+        var optionNhaSanXuat = await model.getOptionNhaSanXuat();
+        var result = await model.getListProduct(query,page);
 
-        var result = await model.getListProduct({},page);
         return res.render('Category/category', {
             isLogin: true,
             title: "Danh sách sản phẩm",
@@ -22,7 +34,11 @@ class CatergoryController {
             page: page,
             maxPage: maxPage,
             total: total,
-            count: count
+            count: count,
+            optionNhaSanXuat : optionNhaSanXuat,
+            optionXuatXu: optionXuatXu,
+            XuatXu: XuatXu,
+            NhaSanXuat: NhaSanXuat
         });
     }
 }

@@ -36,7 +36,7 @@ router.post('/product/:productID',productController.postComment);
 router.get('/search', searchController.getSearch);
 router.get('/login',loginController.getLogin);
 router.post('/login',loginController.postLogin);
-router.get('/',loginController.getLogin);
+router.get('/',homeController.getIndex);
 router.get('/sign-up',loginController.getSignUp);
 router.post('/sign-up',loginController.postSignUp);
 router.get('/activeAccount',loginController.activeAccount);

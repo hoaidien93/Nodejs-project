@@ -6,9 +6,11 @@ class HomeController {
         var status = req.query.status || "";
         // Check session
         var sess = req.session;
+        /*
         if (typeof sess.email === 'undefined') {
             return res.redirect('/login');
         }
+        */
         var total = sess.total || "0";
         total += " VNĐ";
         var count = sess.count || 0;

@@ -9,37 +9,37 @@
         </div>
     </div>
 </div>
-<div class="search row container">
-    <div class="col-md-3 col-sm-6">
-        <span>Loại sản phẩm</span>
-        <select>
-            <option>Điện thoại</option>
-            <option>Tivi</option>
-            <option>Máy tính</option>
-        </select>
-    </div>
-    <div class="col-md-3 col-sm-6">
+<form class="search row container" method="GET">
+    <div class="col-md-4 col-sm-6" align="center">
         <span>Nhà sản xuất</span>
-        <select>
-            <option>Apple</option>
-            <option>Samsung</option>
-            <option>Sony</option>
-            <option>LG</option>
+        <select name="NhaSanXuat">
+            <option value="">----</option>
+            {{#each optionNhaSanXuat}}
+                <option value="{{this}}"
+                    {{#equal this ../NhaSanXuat}}
+                        selected=""
+                    {{/equal}}
+                >{{this}}</option>
+            {{/each}}    
         </select>
     </div>
-    <div class="col-md-3 col-sm-6">
+    <div class="col-md-4 col-sm-6" align="center">
         <span>Xuất sứ</span>
-        <select>
-            <option>Trung quốc</option>
-            <option>Mỹ</option>
-            <option>Hàn Quốc</option>
-            <option>Nhật bản</option>
+        <select name="XuatXu">
+            <option value="">----</option>
+            {{#each optionXuatXu}}
+                <option value="{{this}}"
+                {{#equal this ../XuatXu}}
+                        selected=""
+                    {{/equal}}
+                >{{this}}</option>
+            {{/each}}
         </select>
     </div>
-    <div class="col-md-3 col-sm-6" align="center">
-        <button class="btn btn-primary">Lọc</button>
+    <div class="col-md-4 col-sm-6" align="center">
+        <input type="submit" value="Lọc" class="btn btn-primary"/>
     </div>
-</div>
+</form>
 <div class="single-product-area">
     <div class="zigzag-bottom"></div>
     <div class="container">
@@ -65,7 +65,7 @@
 
         <div class="row">
             <div class="col-md-12">
-                <hd-paging current-page="{{page}}" max-page="{{maxPage}}" for="category"></hd-paging>
+                <hd-paging current-page="{{page}}" max-page="{{maxPage}}" for="category?NhaSanXuat={{NhaSanXuat}}&XuatXu={{XuatXu}}"></hd-paging>
             </div>
         </div>
     </div>

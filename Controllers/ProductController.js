@@ -9,7 +9,6 @@ class ProductController{
         // Get page comment
         var pageComment = req.query.page || 1;
         // Get total page comment
-        console.log(productID);
         var totalPageComment = await (model.getTotalPageComment(productID));
         pageComment = pageComment > totalPageComment? totalPageComment: pageComment;
         var result = await model.getProductDetail(productID);
@@ -24,6 +23,12 @@ class ProductController{
 
         // Get product comment
         var comment = await(model.getProductComment(productID,pageComment));
+
+        // Get relative product
+        var relativeProduct = await model.getListProduct({
+            "producer": result[0].producer
+        });
+
         return res.render('Products/product',{
             isLogin: true,
             title: "Chi tiết sản phẩm",
@@ -31,7 +36,8 @@ class ProductController{
             comment: comment,
             name: name,
             totalPageComment: totalPageComment,
-            pageComment: pageComment
+            pageComment: pageComment,
+            relativeProduct: relativeProduct
         });
     }
 
