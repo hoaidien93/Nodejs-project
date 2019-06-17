@@ -32,7 +32,7 @@ class CheckOutController{
         });
     }
 
-    postCheckOut(req,res){
+    async postCheckOut(req,res){
         var sess = req.session;
         if (typeof sess.email === 'undefined') {
             return res.send('Something went wrong');
@@ -40,9 +40,13 @@ class CheckOutController{
         if (typeof(sess.cart) === "undefined"){
             return res.send('Something went wrong');
         }
+        var address = req.body.address;
+        // Store Db
+        for(var productInfo of sess.cart){
+           await model.storeOrder(productInfo.productID,productInfo.quantity,sess.email,address,"Đã nhận");
+        }
         // Update in history
         model.updateHistory(sess.email,sess.total);
-
         //Clear session cart
         sess.cart = [];
         sess.total = 0;

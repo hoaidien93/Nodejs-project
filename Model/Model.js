@@ -254,6 +254,18 @@ class Model {
 
         return result;
     }
+
+    async storeOrder(productID,quantity,email,address,status){
+        var query = {
+            "productID": productID,
+            "quantity" : quantity,
+            "email" : email,
+            "address": address,
+            "status": status
+        }
+        var result = await dbo.collection("Order").insertOne(query);
+        return result;
+    }
 }
 
 module.exports = Model;
