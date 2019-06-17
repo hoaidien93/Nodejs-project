@@ -8,6 +8,10 @@ class CartController {
         // Format total
         total = total.toString().replace(/(.)(?=(\d{3})+$)/g,'$1.')
         total += " VNĐ";
+        var logged = true;
+        if(typeof(sess.email) === "undefined"){
+            logged = false;
+        }
         var count = sess.count || 0;
         // Get Cart
         var cart = sess.cart || [];
@@ -29,7 +33,8 @@ class CartController {
             total: total,
             cart: cart,
             count: count,
-            newProducts: newProducts
+            newProducts: newProducts,
+            logged: logged
         });
     }
 

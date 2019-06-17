@@ -11,7 +11,10 @@ class ProductController{
         var total = total.toString().replace(/(.)(?=(\d{3})+$)/g,'$1.');
         total += " VNĐ";
         var count = sess.count || 0;
-
+        var logged = true;
+        if(typeof(sess.email) === "undefined"){
+            logged = false;
+        }
         // Get product ID
         var productID = req.params.productID;
         // Get page comment
@@ -47,7 +50,8 @@ class ProductController{
             pageComment: pageComment,
             relativeProduct: relativeProduct,
             total: total,
-            count: count
+            count: count,
+            logged: logged
         });
     }
 

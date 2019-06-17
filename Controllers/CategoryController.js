@@ -9,6 +9,10 @@ class CatergoryController {
         var total = sess.total || 0;
         total = total.toString().replace(/(.)(?=(\d{3})+$)/g,'$1.')
         total += " VNĐ";
+        var logged = true;
+        if(typeof(sess.email) === "undefined"){
+            logged = false;
+        }
         var count = sess.count || 0;
         var XuatXu = req.query.XuatXu || "";
         var NhaSanXuat = req.query.NhaSanXuat || "";
@@ -23,6 +27,7 @@ class CatergoryController {
         var getMaxProducts = await model.getMaxProducts(query);
         var maxPage = Math.ceil(getMaxProducts / PAGE_SIZE);
         page = maxPage < page ? maxPage : page;
+        if(page === 0) page = 1;
         // Get option Xuat Xu
         var optionXuatXu = await model.getOptionXuatXu();
         var optionNhaSanXuat = await model.getOptionNhaSanXuat();
@@ -39,7 +44,8 @@ class CatergoryController {
             optionNhaSanXuat : optionNhaSanXuat,
             optionXuatXu: optionXuatXu,
             XuatXu: XuatXu,
-            NhaSanXuat: NhaSanXuat
+            NhaSanXuat: NhaSanXuat,
+            logged: logged
         });
     }
 }

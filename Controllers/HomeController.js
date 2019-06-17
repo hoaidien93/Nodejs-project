@@ -7,6 +7,10 @@ class HomeController {
         // Check session
         var sess = req.session;
         var total = sess.total || "0";
+        var logged = true;
+        if(typeof(sess.email) === "undefined"){
+            logged = false;
+        }
         total = total.toString().replace(/(.)(?=(\d{3})+$)/g,'$1.')
         total += " VNĐ";
         var count = sess.count || 0;
@@ -28,12 +32,13 @@ class HomeController {
             bestSelling: bestSelling,
             childNewProduct: childNewProduct,
             total: total,
-            count: count
+            count: count,
+            logged: logged
         };
         if (status == "ActiveSuccess"){
             renderData.status = true;
         }
-        return res.render('Home/home', renderData);
+        return res.render('Home/home',  renderData);
     }
 }
 

@@ -8,7 +8,11 @@ class HistoryController{
         total = total.toString().replace(/(.)(?=(\d{3})+$)/g,'$1.')
         total += " VNĐ";
         var count = sess.count || 0;
-        
+        var logged = true;
+        if(typeof(sess.email) === "undefined"){
+            logged = false;
+        }
+
         if(typeof(sess.email) === "undefined"){
             return res.redirect("/login");
         }
@@ -34,7 +38,8 @@ class HistoryController{
             history: history,
             total: total,
             count: count,
-            newProducts : newProducts
+            newProducts : newProducts,
+            logged: logged
         });
     }
 }

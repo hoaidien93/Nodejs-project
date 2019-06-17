@@ -7,7 +7,11 @@
                         <li><a href="/update-info"><i class="fa fa-user"></i> Tài khoản của tôi</a></li>
                         <li><a href="/cart"><i class="fa fa-user"></i> Giỏ hàng</a></li>
                         <li><a href="/checkout"><i class="fa fa-user"></i> Thanh toán</a></li>
-                        <li><a href="/login"><i class="fa fa-user"></i> Đăng nhập</a></li>
+                        {{#if logged}}
+                            <li><a href="/logout"><i class="fa fa-user"></i> Đăng xuất</a></li>
+                        {{else}}
+                            <li><a href="/login"><i class="fa fa-user"></i> Đăng nhập</a></li>
+                        {{/if}}
                     </ul>
                 </div>
             </div>

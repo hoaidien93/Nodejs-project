@@ -209,6 +209,13 @@ class LoginController {
         sess.userName = result;
         return res.redirect("/home?status=ActiveSuccess");
     }
+
+    getLogout(req,res){
+        req.session.destroy(function (err) {
+            if (err) throw err;
+        });
+        return res.redirect('/login');
+    }
 }
 
 module.exports = LoginController;

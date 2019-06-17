@@ -28,7 +28,8 @@ class CheckOutController{
             total: total,
             count: count,
             newProducts: newProducts,
-            cart : cart
+            cart : cart,
+            logged: true
         });
     }
 
