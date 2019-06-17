@@ -44,7 +44,7 @@ class CheckOutController{
         var address = req.body.address;
         // Store Db
         for(var productInfo of sess.cart){
-           await model.storeOrder(productInfo.productID,productInfo.quantity,sess.email,address,"Đã nhận");
+           await model.storeOrder(productInfo.productID,productInfo.quantity,sess.email,address,req.body.billing_first_name,req.body.phoneNumber,"Đã nhận");
         }
         // Update in history
         model.updateHistory(sess.email,sess.total);
@@ -53,7 +53,7 @@ class CheckOutController{
         sess.total = 0;
         sess.count = 0;
         //
-        return res.redirect("/home");
+        return res.redirect("/home?checkOutSuccess=true");
     }
 }
 

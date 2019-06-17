@@ -16,7 +16,7 @@ class HomeController {
         var count = sess.count || 0;
         let limitNewProduct = 6;
         let limitBestSelling = 3;
-
+        var checkOutSuccess = req.query.checkOutSuccess || false;
         var newProducts = await model.getNewProduct(limitNewProduct);
         var bestSelling = await model.getBestSelling(limitBestSelling);
 
@@ -33,7 +33,8 @@ class HomeController {
             childNewProduct: childNewProduct,
             total: total,
             count: count,
-            logged: logged
+            logged: logged,
+            checkOutSuccess: checkOutSuccess
         };
         if (status == "ActiveSuccess"){
             renderData.status = true;

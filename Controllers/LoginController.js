@@ -143,6 +143,10 @@ class LoginController {
         var total = sess.total || "0";
         total = total.toString().replace(/(.)(?=(\d{3})+$)/g,'$1.')
         total += " VNĐ";
+        var logged = true;
+        if(typeof(sess.email) === "undefined"){
+            logged = false;
+        }
         var count = sess.count || 0;
         var updated = req.query.updated;
         var notCorrectPassword = req.query.notCorrectPassword;
@@ -158,7 +162,8 @@ class LoginController {
             updated: updated,
             notCorrectPassword: notCorrectPassword,
             total: total,
-            count: count
+            count: count,
+            logged: logged
         });
     }
 
