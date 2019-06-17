@@ -14,7 +14,7 @@ class CheckOutController{
         var count = sess.count || 0;
 
         // Get cart info
-
+        if(typeof(sess.cart) === "undefined") sess.cart = [];
         var cart = sess.cart;
         for (var element of cart) {
             var totalPrice = parseInt(element.price.replace(/\./g, '')) * element.quantity;
