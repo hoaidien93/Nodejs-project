@@ -14,7 +14,7 @@ class CheckOutController{
         var count = sess.count || 0;
 
         // Get cart info
-
+        if(typeof(sess.cart) === "undefined") sess.cart = [];
         var cart = sess.cart;
         for (var element of cart) {
             var totalPrice = parseInt(element.price.replace(/\./g, '')) * element.quantity;
@@ -28,11 +28,12 @@ class CheckOutController{
             total: total,
             count: count,
             newProducts: newProducts,
-            cart : cart
+            cart : cart,
+            logged: true
         });
     }
 
-    postCheckOut(req,res){
+    async postCheckOut(req,res){
         var sess = req.session;
         if (typeof sess.email === 'undefined') {
             return res.send('Something went wrong');
@@ -40,15 +41,19 @@ class CheckOutController{
         if (typeof(sess.cart) === "undefined"){
             return res.send('Something went wrong');
         }
+        var address = req.body.address;
+        // Store Db
+        for(var productInfo of sess.cart){
+           await model.storeOrder(productInfo.productID,productInfo.quantity,sess.email,address,req.body.billing_first_name,req.body.phoneNumber,"Đã nhận");
+        }
         // Update in history
         model.updateHistory(sess.email,sess.total);
-
         //Clear session cart
         sess.cart = [];
         sess.total = 0;
         sess.count = 0;
         //
-        return res.redirect("/home");
+        return res.redirect("/home?checkOutSuccess=true");
     }
 }
 

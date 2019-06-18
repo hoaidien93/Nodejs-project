@@ -8,6 +8,10 @@ class SearchController{
         var total = sess.total || 0;
         total = total.toString().replace(/(.)(?=(\d{3})+$)/g,'$1.')
         total += " VNĐ";
+        var logged = true;
+        if(typeof(sess.email) === "undefined"){
+            logged = false;
+        }
         var count = sess.count || 0;
         // Get option Xuat Xu
         var optionXuatXu = await model.getOptionXuatXu();
@@ -18,7 +22,7 @@ class SearchController{
         var page = req.query.page || 1;
         var maxPage = await model.getMaxPageSearch(XuatXu,NhaSanXuat,TuKhoa);
         page = page > maxPage ? maxPage : page;
-
+        if(page === 0) page = 1;
         var result = [];
         if(maxPage != 0){
             result = await model.getProductSearch(XuatXu,NhaSanXuat,TuKhoa,page);
@@ -39,7 +43,8 @@ class SearchController{
             result: result,
             page: page,
             maxPage: maxPage,
-            newProducts: newProducts
+            newProducts: newProducts,
+            logged: logged
         });
     }
 }

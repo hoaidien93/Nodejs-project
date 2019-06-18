@@ -4,6 +4,17 @@ const PAGE_SIZE = 10;
 
 class ProductController{
     async getProduct(req,res){
+
+        // Get session
+        var sess = req.session;
+        var total = sess.total || "0";
+        var total = total.toString().replace(/(.)(?=(\d{3})+$)/g,'$1.');
+        total += " VNĐ";
+        var count = sess.count || 0;
+        var logged = true;
+        if(typeof(sess.email) === "undefined"){
+            logged = false;
+        }
         // Get product ID
         var productID = req.params.productID;
         // Get page comment
@@ -11,11 +22,11 @@ class ProductController{
         // Get total page comment
         var totalPageComment = await (model.getTotalPageComment(productID));
         pageComment = pageComment > totalPageComment? totalPageComment: pageComment;
+        if(pageComment === 0) pageComment = 1;
         var result = await model.getProductDetail(productID);
         if(result.length === 0){
             return res.render('Home/home',{isLogin: true, title: "Trang chủ"});
         }
-        var sess = req.session;
         var name = "";
         if(typeof(sess) !== "undefined"){
             name = sess.userName || "";
@@ -37,7 +48,10 @@ class ProductController{
             name: name,
             totalPageComment: totalPageComment,
             pageComment: pageComment,
-            relativeProduct: relativeProduct
+            relativeProduct: relativeProduct,
+            total: total,
+            count: count,
+            logged: logged
         });
     }
 

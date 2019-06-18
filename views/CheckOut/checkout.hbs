@@ -43,7 +43,7 @@
                             <div class="clear"></div>
                         </form>
 
-                        <form enctype="multipart/form-data" action="#" class="checkout" method="post" name="checkout">
+                        <form class="checkout" method="post" name="checkout">
                             <div id="customer_details" class="col2-set">
                                 <div class="col-1">
                                     <div class="woocommerce-billing-fields">
@@ -323,7 +323,7 @@
                                                     class="required">*</abbr>
                                             </label>
                                             <input type="text" value="" placeholder="Tên đường" required="" minlength="6"
-                                                id="billing_address_1" name="billing_address_1" class="input-text ">
+                                                id="billing_address_1" name="address" class="input-text ">
                                         </p>
 
                                         <p id="billing_city_field"
@@ -334,14 +334,6 @@
                                             </label>
                                             <input type="text" value="" placeholder="Tỉnh / Thành phố" id="billing_city"
                                                 name="billing_city" class="input-text " required="" minlength="6">
-                                        </p>
-
-                                        <p id="billing_state_field"
-                                            class="form-row form-row-first address-field validate-state"
-                                            data-o_class="form-row form-row-first address-field validate-state">
-                                            <label class="" for="billing_state">Quốc gia</label>
-                                            <input type="text" id="billing_state" name="billing_state"
-                                                placeholder="Quốc gia" value="" class="input-text " required="" minlength="6">
                                         </p>
                                         <p id="billing_postcode_field"
                                             class="form-row form-row-last address-field validate-required validate-postcode"
@@ -370,7 +362,7 @@
                                                     class="required">*</abbr>
                                             </label>
                                             <input type="text" value="" placeholder="" id="billing_phone"
-                                                name="billing_phone" class="input-text ">
+                                                name="phoneNumber" class="input-text ">
                                         </p>
                                         <div class="clear"></div>
                                     </div>
