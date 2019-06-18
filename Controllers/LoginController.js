@@ -95,7 +95,8 @@ class LoginController {
                 "phoneNumber": phoneNumber,
                 "authority": "users",
                 "active": "0",
-                "token": token
+                "token": token,
+                "status":"khóa"
             };
             var fullUrl = req.protocol + '://' + req.get('host');
             var linkActive = `${fullUrl}/activeAccount?email=${email}&token=${token}`;
@@ -119,7 +120,12 @@ class LoginController {
         var email = req.body.username;
         var password = req.body.pass;
         // Get Info of account
-        var account = await model.getAccount({ "email": email });
+        var account1 = await model.getAccount({ "email": email,"status":"mở" });
+        if(account1.length===1)
+        {
+            return res.render('Login/login', { isLoginFail1: true });
+        }
+        var account = await model.getAccount({ "email": email,"status":"khóa" });
         if (account.length === 1) {
             var result = await bcrypt.compare(password, account[0].password);
             if (result) {
